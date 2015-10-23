@@ -109,12 +109,12 @@ vmap <Leader>" c""<Esc>P
 vmap <Leader>' c''<Esc>P
 
 " Paste fix
-nmap [ o<ESC> " [ - Inserts a line after the current without entering insert mode
-nmap ] O<ESC> " ] - Inserts a line before the current without entering insert mode
-nmap <C-p> "+p " Ctrl-P - Pastes from clipboard
-nmap <C-S-p> ["+p " Ctrl-Shift-P - Pastes from clipboard on the next line
-nmap <C-y> "+yy " Ctrl-y - Copies the current line to clipboard 
-vmap <C-y> "+y " Ctrl-y - Copies the current selection to clipboard
+" nmap [ o<ESC> " [ - Inserts a line after the current without entering insert mode
+" nmap ] O<ESC> " ] - Inserts a line before the current without entering insert mode
+" nmap <C-p> "+p " Ctrl-P - Pastes from clipboard
+" nmap <C-S-p> ["+p " Ctrl-Shift-P - Pastes from clipboard on the next line
+" nmap <C-y> "+yy " Ctrl-y - Copies the current line to clipboard 
+" vmap <C-y> "+y " Ctrl-y - Copies the current selection to clipboard
 
 " Resize buffers
 if bufwinnr(1)
