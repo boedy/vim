@@ -23,6 +23,12 @@ Bundle 'fatih/vim-go'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'ctrlp.vim'
 Bundle 'terryma/vim-multiple-cursors'
+" Bundle 'Shougo/vimproc.vim'
+" Bundle 'Shougo/unite.vim'
+" Bundle 'm2mdas/phpcomplete-extended'
+
+let g:phpcomplete_index_composer_command = "composer"
+" autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 filetype plugin indent on
 
@@ -145,6 +151,14 @@ let g:ctrlp_max_depth = 5
 set rtp+=/usr/local/Cellar/go/1.0.3/misc/vim
 " use goimports for formatting
 let g:go_fmt_command = "goimports"
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 " turn highlighting on
 let g:go_highlight_functions = 1
