@@ -56,6 +56,7 @@ set nobackup
 set hlsearch
 set ignorecase
 set smartcase
+set fileformat=unix
 
 " Set files to be excluded from autocomplete
 set wildignore+=*.jpg,*.gif,*.png,*.jpeg
