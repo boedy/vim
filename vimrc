@@ -15,14 +15,20 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'rking/ag.vim'
 Bundle 'kana/vim-textobj-user'
 Bundle 'slim-template/vim-slim'
 Bundle 'markcornick/vim-vagrant'
 Bundle 'fatih/vim-go'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'shougo/deoplete.nvim'
 Bundle 'ctrlp.vim'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'easymotion/vim-easymotion'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'junegunn/goyo.vim'
+
+" Bundle 'Valloric/YouCompleteMe'
 " Bundle 'Shougo/vimproc.vim'
 " Bundle 'Shougo/unite.vim'
 " Bundle 'm2mdas/phpcomplete-extended'
@@ -44,7 +50,7 @@ set modelines=0
 set shiftwidth=2
 set clipboard=unnamed
 set synmaxcol=128
-set ttyscroll=10
+" set ttyscroll=10
 set encoding=utf-8
 set tabstop=2
 set nowrap
@@ -55,8 +61,16 @@ set noswapfile
 set nobackup
 set hlsearch
 set ignorecase
+set hidden
 set smartcase
 set fileformat=unix
+set ff=unix
+set splitright
+
+" plugins configs
+runtime conf/golang.vim
+runtime conf/ctrlp.vim
+runtime conf/nerdcommenter.vim
 
 " Set files to be excluded from autocomplete
 set wildignore+=*.jpg,*.gif,*.png,*.jpeg
@@ -97,12 +111,6 @@ nmap ) ^
 " format the entire file
 nmap <leader>fef ggVG=
 
-" Open new buffers
-nmap <leader>s<left>   :leftabove  vnew<cr>
-nmap <leader>s<right>  :rightbelow vnew<cr>
-nmap <leader>s<up>     :leftabove  new<cr>
-nmap <leader>s<down>   :rightbelow new<cr>
-
 " Tab between buffers
 noremap <tab> <c-w><c-w>
 
@@ -115,14 +123,6 @@ nnoremap <Leader>' ciw''<Esc>P
 vmap <Leader>" c""<Esc>P
 vmap <Leader>' c''<Esc>P
 
-" Paste fix
-" nmap [ o<ESC> " [ - Inserts a line after the current without entering insert mode
-" nmap ] O<ESC> " ] - Inserts a line before the current without entering insert mode
-" nmap <C-p> "+p " Ctrl-P - Pastes from clipboard
-" nmap <C-S-p> ["+p " Ctrl-Shift-P - Pastes from clipboard on the next line
-" nmap <C-y> "+yy " Ctrl-y - Copies the current line to clipboard 
-" vmap <C-y> "+y " Ctrl-y - Copies the current selection to clipboard
-
 " Resize buffers
 if bufwinnr(1)
   nmap Ä <C-W><<C-W><
@@ -130,6 +130,9 @@ if bufwinnr(1)
   nmap ö <C-W>-<C-W>-
   nmap ä <C-W>+<C-W>+
 endif
+
+" Search
+nnoremap <silent> <CR> :noh<CR><CR>
 
 " NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
@@ -141,39 +144,37 @@ set mouse=a
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_ruby_exec = '~/.rvm/rubies/ruby-2.0.0-p0/bin/ruby'
 
-" CtrlP
-nnoremap <silent> t :CtrlP<cr>
-let g:ctrlp_working_path_mode = 2
-let g:ctrlp_by_filename = 1
-let g:ctrlp_max_files = 600
-let g:ctrlp_max_depth = 5
 
-" Go programming
-set rtp+=/usr/local/Cellar/go/1.0.3/misc/vim
-" use goimports for formatting
-let g:go_fmt_command = "goimports"
+" Window management
+function! WinMove(key) 
+  let t:curwin = winnr()
+  exec "wincmd ".a:key
+  if (t:curwin == winnr()) "we havent moved
+    if (match(a:key,'[jk]')) "were we going up/down
+      wincmd v
+    else 
+      wincmd s
+    endif
+    exec "wincmd ".a:key
+  endif
+endfunction
+ 
+map <leader>h :call WinMove('h')<cr>
+map <leader>k :call WinMove('k')<cr>
+map <leader>l :call WinMove('l')<cr>
+map <leader>j :call WinMove('j')<cr>
+map <leader>w :wincmd q<cr>
+map <leader>H :wincmd H<cr>
+map <leader>K :wincmd K<cr>
+map <leader>L :wincmd L<cr>
+map <leader>J :wincmd J<cr>
 
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
-" turn highlighting on
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+map <Plug>(easymotion-prefix) s
+map ss <Plug>(easymotion-s)
+map st <Plug>(easymotion-t2)
 
-let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
 
-" Open go doc in vertical window, horizontal, or tab
-au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
-au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
-au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
-
-" Quit with :Q
-" command -nargs=0 Quit :qa!
