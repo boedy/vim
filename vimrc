@@ -27,6 +27,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'junegunn/goyo.vim'
+Bundle 'terryma/vim-expand-region'
 
 " Bundle 'Valloric/YouCompleteMe'
 " Bundle 'Shougo/vimproc.vim'
@@ -71,6 +72,7 @@ set splitright
 runtime conf/golang.vim
 runtime conf/ctrlp.vim
 runtime conf/nerdcommenter.vim
+runtime conf/expand.vim
 
 " Set files to be excluded from autocomplete
 set wildignore+=*.jpg,*.gif,*.png,*.jpeg
@@ -133,6 +135,9 @@ endif
 
 " Search
 nnoremap <silent> <CR> :noh<CR><CR>
+
+" Gitgutter
+let g:gitgutter_map_keys = 0
 
 " NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
