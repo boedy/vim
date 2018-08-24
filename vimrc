@@ -23,7 +23,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'slim-template/vim-slim'
 Plug 'markcornick/vim-vagrant'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
