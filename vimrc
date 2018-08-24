@@ -1,33 +1,38 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/.vundle/
-call vundle#rc()
+" Install plug plugin manager if not exists
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" Let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-
-" My Bundles
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'rking/ag.vim'
-Bundle 'kana/vim-textobj-user'
-Bundle 'slim-template/vim-slim'
-Bundle 'markcornick/vim-vagrant'
-Bundle 'fatih/vim-go'
-Bundle 'shougo/deoplete.nvim'
-Bundle 'ctrlp.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'easymotion/vim-easymotion'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'junegunn/goyo.vim'
-Bundle 'terryma/vim-expand-region'
+" My Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'nanotech/jellybeans.vim'
+Plug 'Lokaltog/vim-powerline'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'rking/ag.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'slim-template/vim-slim'
+Plug 'markcornick/vim-vagrant'
+Plug 'fatih/vim-go'
+Plug 'ctrlp.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/goyo.vim'
+Plug 'terryma/vim-expand-region'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'Shougo/echodoc', { 'do': 'make'}
+call plug#end()
 
 " Bundle 'Valloric/YouCompleteMe'
 " Bundle 'Shougo/vimproc.vim'
