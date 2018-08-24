@@ -34,6 +34,7 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'Shougo/echodoc', { 'do': 'make'}
 Plug 'cohama/lexima.vim'
 Plug 'matze/vim-move'
+Plug 'w0rp/ale'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
