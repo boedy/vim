@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'nanotech/jellybeans.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
@@ -35,6 +34,11 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'Shougo/echodoc', { 'do': 'make'}
 Plug 'cohama/lexima.vim'
 Plug 'matze/vim-move'
+
+" Themes
+Plug 'nanotech/jellybeans.vim'
+Plug 'YorickPeterse/happy_hacking.vim'
+
 call plug#end()
 
 let g:phpcomplete_index_composer_command = "composer"
@@ -45,7 +49,7 @@ filetype plugin indent on
 let mapleader=" "
 nnoremap <SPACE> <Nop>
 
-color jellybeans
+color happy_hacking
 
 set cursorline
 set expandtab
