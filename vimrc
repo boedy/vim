@@ -35,6 +35,7 @@ Plug 'Shougo/echodoc', { 'do': 'make'}
 Plug 'cohama/lexima.vim'
 Plug 'matze/vim-move'
 Plug 'w0rp/ale'
+Plug 'auwsmit/vim-active-numbers'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
@@ -62,7 +63,6 @@ set synmaxcol=128
 set encoding=utf-8
 set tabstop=2
 set nowrap
-set number
 set expandtab
 set nowritebackup
 set noswapfile
@@ -91,7 +91,7 @@ autocmd BufWritePre *.slim :%s/\s\+$//e
 au BufNewFile * set noeol
 au BufRead,BufNewFile *.go set filetype=go
 
-" No show command
+" No ehow command
 autocmd VimEnter * set nosc
 
 " Quick ESC
@@ -133,8 +133,17 @@ if bufwinnr(1)
   nmap ä <C-W>+<C-W>+
 endif
 
+" Gutter line number settings
+" set number relativenumber
+nmap <C-N><C-N> :set invrelativenumber<CR>
+
+" Close help screen with q
+autocmd FileType help noremap <buffer> q :q<cr>
+
 " Search
 nnoremap <silent> <CR> :noh<CR><CR>
+" Clear search highlighting
+nnoremap <esc> :noh<return><esc>
 
 " Gitgutter
 let g:gitgutter_map_keys = 0
