@@ -33,6 +33,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'Shougo/echodoc', { 'do': 'make'}
 Plug 'cohama/lexima.vim'
+Plug 'matze/vim-move'
 call plug#end()
 
 let g:phpcomplete_index_composer_command = "composer"
@@ -97,8 +98,7 @@ nnoremap j gj
 nnoremap k gk
 
 " move lines up and down
-nnoremap <C-j> :m+<CR>
-nnoremap <C-k> :m-2<CR>
+let g:move_key_modifier = 'C'
 
 " go to first non whitespace character
 vmap ) ^
