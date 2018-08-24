@@ -22,7 +22,7 @@ Plug 'rking/ag.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'slim-template/vim-slim'
 Plug 'markcornick/vim-vagrant'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
@@ -34,13 +34,7 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'Shougo/echodoc', { 'do': 'make'}
 call plug#end()
 
-" Bundle 'Valloric/YouCompleteMe'
-" Bundle 'Shougo/vimproc.vim'
-" Bundle 'Shougo/unite.vim'
-" Bundle 'm2mdas/phpcomplete-extended'
-
 let g:phpcomplete_index_composer_command = "composer"
-" autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 filetype plugin indent on
 
@@ -72,12 +66,6 @@ set smartcase
 set fileformat=unix
 set ff=unix
 set splitright
-
-" plugins configs
-runtime conf/golang.vim
-runtime conf/ctrlp.vim
-runtime conf/nerdcommenter.vim
-runtime conf/expand.vim
 
 " Set files to be excluded from autocomplete
 set wildignore+=*.jpg,*.gif,*.png,*.jpeg

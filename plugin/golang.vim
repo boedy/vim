@@ -1,5 +1,5 @@
 " Go programming
-set rtp+=/usr/local/Cellar/go/1.0.3/misc/vim
+"set rtp+=/usr/local/Cellar/go/1.0.3/misc/vim
 " use goimports for formatting
 let g:go_fmt_command = "goimports"
 
@@ -24,3 +24,14 @@ let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
 au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
 au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
+
+" deoplete-go settings
+let g:deoplete#sources#go#gocode_binary = '~/projects/go/3rdparty/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#use_cache = 0
+let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/$GOOS_$GOARCH'
+set noshowmode
+let g:echodoc_enable_at_startup = 1
+set completeopt+=noinsert
+set completeopt+=
+autocmd CompleteDone * pclose!
