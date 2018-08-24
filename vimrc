@@ -32,6 +32,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'Shougo/echodoc', { 'do': 'make'}
+Plug 'cohama/lexima.vim'
 call plug#end()
 
 let g:phpcomplete_index_composer_command = "composer"
