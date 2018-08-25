@@ -40,7 +40,7 @@ Plug 'auwsmit/vim-active-numbers'
 " Themes
 Plug 'nanotech/jellybeans.vim'
 Plug 'YorickPeterse/happy_hacking.vim'
-
+Plug 'rainglow/vim'
 call plug#end()
 
 let g:phpcomplete_index_composer_command = "composer"
@@ -51,7 +51,12 @@ filetype plugin indent on
 let mapleader=" "
 nnoremap <SPACE> <Nop>
 
-color happy_hacking
+" Set theme
+set termguicolors
+" color happy_hacking
+color peel
+hi Normal         guifg=#d6e1c7 guibg=#151311 gui=NONE
+hi NonText        guifg=#988c6f guibg=#151311 gui=NONE
 
 set cursorline
 set expandtab
