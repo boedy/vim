@@ -53,10 +53,10 @@ nnoremap <SPACE> <Nop>
 
 " Set theme
 set termguicolors
-" color happy_hacking
-color peel
-hi Normal         guifg=#d6e1c7 guibg=#151311 gui=NONE
-hi NonText        guifg=#988c6f guibg=#151311 gui=NONE
+color happy_hacking
+" color peel
+" hi Normal         guifg=#d6e1c7 guibg=#151311 gui=NONE
+" hi NonText        guifg=#988c6f guibg=#151311 gui=NONE
 
 set cursorline
 set expandtab
