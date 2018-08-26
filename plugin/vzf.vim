@@ -1,1 +1,1 @@
-map ; :Files<CR>
+nmap <C-o> :Files<CR>
