@@ -145,10 +145,8 @@ nmap <C-N><C-N> :set invrelativenumber<CR>
 " Close help screen with q
 autocmd FileType help noremap <buffer> q :q<cr>
 
-" Search
-nnoremap <silent> <CR> :noh<CR><CR>
 " Clear search highlighting
-nnoremap <esc> :noh<return><esc>
+nnoremap <silent> <esc> :noh<return><esc>
 
 " Gitgutter
 let g:gitgutter_map_keys = 0
