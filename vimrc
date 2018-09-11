@@ -41,6 +41,7 @@ Plug 'auwsmit/vim-active-numbers'
 Plug 'nanotech/jellybeans.vim'
 Plug 'YorickPeterse/happy_hacking.vim'
 Plug 'rainglow/vim'
+Plug 'nightsense/snow'
 call plug#end()
 
 let g:phpcomplete_index_composer_command = "composer"
