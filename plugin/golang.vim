@@ -3,6 +3,9 @@
 " use goimports for formatting
 let g:go_fmt_command = "goimports"
 
+au Filetype go nmap <C-i> <C-]>
+au Filetype go nnoremap <C-p> <C-o>
+
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -19,6 +22,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+let g:ale_linters = {'go': ['golint', 'errcheck']}
 
 " Open go doc in vertical window, horizontal, or tab
 au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
@@ -35,3 +39,6 @@ let g:echodoc_enable_at_startup = 1
 set completeopt+=noinsert
 set completeopt+=
 autocmd CompleteDone * pclose!
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = '/usr/local/bin/gotags -R -f="tags" .'

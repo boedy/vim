@@ -1,5 +1,5 @@
 " CtrlP
-nnoremap <silent> t :CtrlP<cr>
+" nnoremap <silent> t :CtrlP<cr>
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_by_filename = 1
