@@ -36,6 +36,7 @@ Plug 'cohama/lexima.vim'
 Plug 'matze/vim-move'
 Plug 'w0rp/ale'
 Plug 'auwsmit/vim-active-numbers'
+Plug 'felixSchl/vim-gh-preview'
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
@@ -84,7 +85,8 @@ set splitright
 " Set files to be excluded from autocomplete
 set wildignore+=*.jpg,*.gif,*.png,*.jpeg
 
-autocmd FileType Vagrantfile setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Save with <ctrl> + s
+noremap <silent> <C-S> :update<CR>
 
 " Automatic formatting
 autocmd BufWritePre *.rb :%s/\s\+$//e

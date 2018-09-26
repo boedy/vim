@@ -8,7 +8,8 @@ au Filetype go nnoremap <C-p> <C-o>
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>tt <Plug>(go-test)
+au FileType go nmap <leader>tf <Plug>(go-test-func)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
@@ -27,7 +28,7 @@ let g:ale_linters = {'go': ['golint', 'errcheck']}
 " Open go doc in vertical window, horizontal, or tab
 au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
 au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
-au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
+"au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 " deoplete-go settings
 let g:deoplete#sources#go#gocode_binary = '~/projects/go/3rdparty/bin/gocode'
