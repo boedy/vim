@@ -31,6 +31,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'Shougo/echodoc', { 'do': 'make'}
 Plug 'cohama/lexima.vim'
 Plug 'matze/vim-move'
@@ -150,6 +151,7 @@ autocmd FileType help noremap <buffer> q :q<cr>
 
 " Clear search highlighting
 nnoremap <silent> <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
 
 " Gitgutter
 let g:gitgutter_map_keys = 0

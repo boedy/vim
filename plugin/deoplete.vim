@@ -7,4 +7,3 @@ set completeopt-=preview
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-:
